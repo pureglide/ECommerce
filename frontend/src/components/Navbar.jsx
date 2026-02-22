@@ -17,7 +17,8 @@ const Navbar = () => {
     }
 
   return (
-    <header className='sticky top-0 z-40 backdrop-blur bg-white/80 border-b border-slate-100'>
+    <>
+      <header className='sticky top-0 z-40 backdrop-blur bg-white/80 border-b border-slate-100'>
       <div className='flex items-center justify-between py-4 sm:py-5 md:py-6 px-1 sm:px-3 md:px-4 font-medium'>
       
         <Link to='/' className='flex items-center gap-3'>
@@ -27,7 +28,7 @@ const Navbar = () => {
           </span>
         </Link>
 
-        <ul className='hidden sm:flex gap-6 text-sm text-slate-600'>
+        <ul className='hidden md:flex gap-6 text-sm text-slate-600'>
         
           <NavLink to='/' className='flex flex-col items-center gap-1'>
               <p className='tracking-wide hover:text-slate-900 transition-colors' onClick={() => window.scrollTo(0, 0)}>Home</p>
@@ -85,29 +86,30 @@ const Navbar = () => {
             <button
               type='button'
               onClick={()=>setVisible(true)}
-              className='inline-flex sm:hidden items-center justify-center w-9 h-9 rounded-full border border-slate-200 bg-white hover:border-slate-300 hover:shadow-sm transition-all'
+              className='inline-flex md:hidden items-center justify-center w-9 h-9 rounded-full border border-slate-200 bg-white hover:border-slate-300 hover:shadow-sm transition-all'
             >
               <img src={assets.menu_icon} className='w-4 cursor-pointer' alt="" />
             </button>
         </div>
 
       </div>
+      </header>
 
       {/* Sidebar menu for small screens */}
-      <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white/95 backdrop-blur transition-all duration-300 ${visible ? 'w-full' : 'w-0'}`}>
-                <div className='flex flex-col text-gray-600'>
-                    <div onClick={()=>setVisible(false)} className='flex items-center gap-4 p-3 cursor-pointer'>
+      <div className={`fixed top-0 right-0 bottom-0 z-[100] bg-white transition-transform duration-300 w-full ${visible ? 'translate-x-0' : 'translate-x-full'}`}>
+                <div className='flex flex-col text-slate-800 w-full h-screen bg-white'>
+                    <div onClick={()=>setVisible(false)} className='flex items-center gap-4 p-4 cursor-pointer border-b border-slate-200'>
                         <img className='h-4 rotate-180' src={assets.dropdown_icon} alt="" />
-                        <p>Back</p>
+                        <p className='font-semibold'>Back</p>
                     </div>
-                    <NavLink onClick={()=>setVisible(false)} className='py-3 pl-6 border-t text-sm tracking-wide' to='/'>Home</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-3 pl-6 border-t text-sm tracking-wide' to='/collection'>Collection</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-3 pl-6 border-t text-sm tracking-wide' to='/about'>About</NavLink>
-                    <NavLink onClick={()=>setVisible(false)} className='py-3 pl-6 border-y text-sm tracking-wide' to='/contact'>Contact</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-4 pl-6 border-b border-slate-200 text-lg font-medium hover:text-black transition-colors' to='/'>Home</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-4 pl-6 border-b border-slate-200 text-lg font-medium hover:text-black transition-colors' to='/collection'>Collection</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-4 pl-6 border-b border-slate-200 text-lg font-medium hover:text-black transition-colors' to='/about'>About</NavLink>
+                    <NavLink onClick={()=>setVisible(false)} className='py-4 pl-6 border-b border-slate-200 text-lg font-medium hover:text-black transition-colors' to='/contact'>Contact</NavLink>
                 </div>
         </div>
 
-    </header>
+    </>
   )
 }
 

@@ -3,7 +3,7 @@ import { assets } from '../assets/assets'
 import { Link } from 'react-router-dom'
 
 const Hero = () => {
-  return (
+  return ( 
     <section className='mt-4 sm:mt-6'>
       <div className='flex flex-col sm:flex-row overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white shadow-[0_18px_45px_rgba(15,23,42,0.28)]'>
         {/* Hero Left Side */}
