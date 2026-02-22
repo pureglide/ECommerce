@@ -10,7 +10,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Edit from './pages/Edit'
 
-export const backendUrl = import.meta.env.VITE_BACKEND_URL
+export const backendUrl = (import.meta.env.VITE_BACKEND_URL || "https://pureglide.onrender.com").replace(/\/api\/?$/, "")
 export const currency = '₹'
 
 const App = () => {
